@@ -52,7 +52,7 @@ class App extends React.Component {
       if (!chars.includes(guessedChar)) {
         lives -= 1;
 
-        if (lives === 0) {
+        if (lives <= 0) {
           gameOver = true;
         }
 
@@ -87,7 +87,7 @@ class App extends React.Component {
         response.json().then((parsed) => {
           let data = parsed.split(/\n/);
           let word = this.randomWordPicker(data, 0, data.length);
-          
+
           console.log(word);
           this.setState({
             word: word,
