@@ -1,11 +1,11 @@
 import React from 'react';
 
 function Underscore(props) {
-  console.log(props);
   return (
-    <span className='wordContainer'>
-      {props.guessed === true ? <u>{props.char}</u>
-      : <span> { '_'} </span>} <span>{' '}</span>
+    <span className='UnderscoreContainer'>
+      {props.guessed === true 
+        ? <span className="Underscore"> {props.char} </span>
+        : <span className="Underscore"> {'_'} </span>} 
     </span>
   )
 }
