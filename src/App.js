@@ -23,6 +23,7 @@ class App extends React.Component {
     this.randomWordPicker = this.randomWordPicker.bind(this);
     this.keyUpHandler = this.keyUpHandler.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.fetchWord = this.fetchWord.bind(this);
   }
 
   handleReset() {
@@ -86,6 +87,7 @@ class App extends React.Component {
         response.json().then((parsed) => {
           let data = parsed.split(/\n/);
           let word = this.randomWordPicker(data, 0, data.length);
+          
           console.log(word);
           this.setState({
             word: word,
@@ -95,6 +97,8 @@ class App extends React.Component {
             gameOver: false,
             won: false,
           });
+        }).catch((error) => {
+          console.error(error);
         })
       })
       .catch((error) => {
